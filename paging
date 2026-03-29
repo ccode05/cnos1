@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main(){
+    int p[10],n,i,pg,off,f=100;
+    printf("Enter the number of pages: ");scanf("%d",&n);
+    for(i=0;i<n;i++)printf("Frame for page %d: ",i),scanf("%d",&p[i]);
+    printf("\nEnter the page number and offset: ");scanf("%d %d",&pg,&off);
+    if(pg>=n)printf("Error: Invalid Page Number!\n");
+    else if(off>=f)printf("Error: Offset exceeds frame size (%d)!\n",f);
+    else printf("Physical Address = %d\n",p[pg]*f+off);
+}
