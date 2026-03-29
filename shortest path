@@ -1,0 +1,15 @@
+#include <stdio.h>
+#define M 10
+#define I 9999
+int main(){
+    int n,i,j,k,c[M][M],p[M][M],s,e;
+    printf("Enter number of vertices: ");scanf("%d",&n);
+    printf("Enter weighted matrix:\n");
+    for(i=0;i<n;i++)for(j=0;j<n;j++)scanf("%d",&c[i][j]),p[i][j]=(i==j)?0:(c[i][j]?c[i][j]:I);
+    for(k=0;k<n;k++)for(i=0;i<n;i++)for(j=0;j<n;j++)p[i][j]=p[i][j]<p[i][k]+p[k][j]?p[i][j]:p[i][k]+p[k][j];
+    printf("\nShortest path matrix:\n");
+    for(i=0;i<n;i++,printf("\n"))for(j=0;j<n;j++)printf(p[i][j]==I?"INF ":"%d ",p[i][j]);
+    printf("\nEnter start vertex: ");scanf("%d",&s);
+    printf("Enter end vertex: ");scanf("%d",&e);
+    printf("Minimum cost between %d and %d is %d\n",s,e,p[s][e]);
+}
