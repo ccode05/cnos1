@@ -1,0 +1,22 @@
+//week12b
+#include <stdio.h>
+int main() {
+    int f[10], p[20], fc, pc, i, j, k, pf=0, found, pos, recent[10];
+    printf("Enter number of frames: "); scanf("%d",&fc);
+    printf("Enter number of pages: "); scanf("%d",&pc);
+    printf("Enter page reference string:\n");
+    for(i=0;i<pc;i++) scanf("%d",&p[i]);
+    for(i=0;i<fc;i++) f[i]=recent[i]=-1;
+    for(i=0;i<pc;i++){
+        found=0;
+        for(j=0;j<fc;j++) if(f[j]==p[i]) {found=1; recent[j]=i; break;}
+        if(!found){
+            k=-1;
+            for(j=0;j<fc;j++) if(f[j]==-1) {k=j; break;}
+            if(k==-1) { pos=0; for(j=1;j<fc;j++) if(recent[j]<recent[pos]) pos=j; k=pos; }
+            f[k]=p[i]; recent[k]=i; pf++;
+        }
+    }
+    printf("\nTotal page faults = %d\n", pf);
+    return 0;
+}
