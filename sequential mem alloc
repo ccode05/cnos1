@@ -1,0 +1,18 @@
+//week10
+#include <stdio.h>
+int main(){
+    int d[100]={0},n,s,z,i,j,o;
+    printf("Enter number of files to allocate: ");scanf("%d",&n);
+    for(i=1;i<=n;i++){
+        printf("\nEnter start block and size for file %d: ",i);scanf("%d %d",&s,&z);
+        if(s+z>100)printf("Error: File exceeds disk capacity!\n");
+        else{
+            for(o=0,j=s;j<s+z&& !d[j];j++);
+            if(j<s+z)printf("Error: Block %d is already taken. Allocation failed!\n",j);
+            else{
+                for(j=s;j<s+z;j++)d[j]=i;
+                printf("File %d allocated successfully from %d to %d.\n",i,s,s+z-1);
+            }
+        }
+    }
+}
