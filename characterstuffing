@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+    int i;
+    char esc='#',flag='$';
+    char input[100];
+    printf("Enter the Message:");
+    scanf("%s",input);
+    for(i=0;input[i]!='\0';i++){
+        putchar(input[i]);
+        if(input[i]==esc||input[i]==flag){
+            putchar(esc);
+            }
+        }  
+        }      
+        

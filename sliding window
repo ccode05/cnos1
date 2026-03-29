@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+    int w,t,s=0,a,i;
+    printf("Enter total number of frames: ");scanf("%d",&t);
+    printf("Enter window size: ");scanf("%d",&w);
+    while(s<t){
+        printf("\nSending frames:\n");
+        for(i=s;i<s+w&&i<t;i++)printf("Frame %d sent\n",i);
+        printf("Enter number of frames acknowledged: ");scanf("%d",&a);
+        s+=a;
+        printf("Window moved. Next frame to send: %d\n",s);
+    }
+    printf("\nAll frames sent successfully\n");
+}

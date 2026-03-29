@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main(){
+int i,count=0;
+char input[100];
+printf("enetr the bit stream:\n");
+scanf("%s",input);
+printf("the stuffed bit stream is:\n");
+for(i=0;input[i]!='\0';i++){
+putchar(input[i]);
+if(input[i]=='1'){
+count++;
+if(count==5){
+putchar('0');
+count=0;
+}
+}
+else{
+count=0;
+}
+}
+}
