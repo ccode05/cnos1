@@ -1,0 +1,10 @@
+//week11b
+#include <stdio.h>
+int main(){
+    int b[10],l[10],n,i,s,o;
+    printf("Enter the number of segments: ");scanf("%d",&n);
+    for(i=0;i<n;i++)printf("Base and Limit for Segment %d: ",i),scanf("%d %d",&b[i],&l[i]);
+    printf("Enter segment number and offset: ");scanf("%d %d",&s,&o);
+    if(s<n && o<l[s])printf("Physical Address = %d\n",b[s]+o);
+    else printf("Error: Invalid Segment or offset exceeds limit\n");
+}
